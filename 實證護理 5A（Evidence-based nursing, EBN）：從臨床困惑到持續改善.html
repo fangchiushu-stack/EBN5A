@@ -1,0 +1,398 @@
+<!DOCTYPE html>
+<html lang="zh-Hant">
+<head>
+<meta charset="utf-8">
+<meta name="viewport" content="width=device-width, initial-scale=1, viewport-fit=cover">
+<title>實證護理 5A（Evidence-based nursing, EBN）：從臨床困惑到持續改善</title>
+<link rel="stylesheet" href="https://fonts.googleapis.com/css2?family=Noto+Serif+TC:wght@600;800&family=Noto+Sans+TC:wght@400;500;700&display=swap">
+<style>
+:root{--bg:#F2F6F6;--sf:#fff;--ink:#10292F;--mu:#5B7176;--ln:#D5E1E2;--c1:#0E7C86;--c2:#3B6FD4;--c3:#8A5CC2;--c4:#C77D00;--c5:#2E9E5B;--bad:#C0392B;
+box-sizing:border-box;padding-top:env(safe-area-inset-top,0px);padding-bottom:env(safe-area-inset-bottom,0px);color-scheme:light}
+html{scroll-padding-top:70px;scroll-behavior:smooth}
+@media (prefers-color-scheme:dark){:root:not([data-theme="light"]){--bg:#0E1A1D;--sf:#152529;--ink:#E6F1F2;--mu:#9DB4B8;--ln:#28403F;--c1:#3CC4D0;--c2:#7AA2F2;--c3:#B994E8;--c4:#F0A929;--c5:#5CCB8A;--bad:#F07B6C;color-scheme:dark}}
+:root[data-theme="dark"]{--bg:#0E1A1D;--sf:#152529;--ink:#E6F1F2;--mu:#9DB4B8;--ln:#28403F;--c1:#3CC4D0;--c2:#7AA2F2;--c3:#B994E8;--c4:#F0A929;--c5:#5CCB8A;--bad:#F07B6C;color-scheme:dark}
+*{box-sizing:border-box}
+body{margin:0;background:var(--bg);color:var(--ink);font:400 16px/1.75 "Noto Sans TC",system-ui,sans-serif}
+h1,h2,h3{font-family:"Noto Serif TC",serif;line-height:1.3;margin:0}
+nav{position:sticky;top:0;z-index:10;background:var(--bg);border-bottom:1px solid var(--ln);padding-top:env(safe-area-inset-top,0px);display:flex;gap:4px;overflow-x:auto;padding-left:12px;padding-right:12px}
+nav a{padding:12px 14px;color:var(--mu);text-decoration:none;font-weight:700;white-space:nowrap;border-bottom:3px solid transparent}
+nav a:hover,nav a:focus-visible{color:var(--ink);outline:none;border-color:var(--k)}
+main{max-width:1000px;margin:0 auto;padding:0 20px}
+.hero{display:grid;grid-template-columns:1fr 1fr;gap:32px;align-items:center;padding:48px 0}
+.hero h1{font-family:"Noto Sans TC",system-ui,sans-serif;font-size:clamp(30px,5vw,48px);font-weight:800;letter-spacing:.02em}
+.hero p.lead{color:var(--mu);margin:12px 0 20px}
+#panel{background:var(--sf);border-left:6px solid var(--k,var(--c1));padding:16px 20px;border-radius:4px}
+#panel h3{font-size:22px}#panel ul{margin:8px 0 12px;padding-left:20px}
+#panel a{color:var(--k);font-weight:700}
+svg text{font-family:inherit}
+.node{cursor:pointer}.node:focus-visible circle{stroke:var(--ink);stroke-width:3}
+section{padding:48px 0;border-top:1px solid var(--ln)}
+section>h2{font-size:28px;display:flex;align-items:baseline;gap:12px}
+section>h2 i{font-style:normal;color:var(--k);font-size:40px;font-weight:800}
+section>p{color:var(--mu);margin:6px 0 20px;max-width:60ch}
+.grid{display:grid;grid-template-columns:1fr 1fr;gap:20px}
+.card{background:var(--sf);border:1px solid var(--ln);border-radius:8px;padding:18px;min-width:0}
+.card h3{font-size:18px;margin-bottom:10px}
+.note{color:var(--mu);font-size:14px;margin:8px 0 0}
+label.f{display:block;font-size:14px;font-weight:700;margin-top:10px}
+label.f b{color:var(--k)}
+input[type=text],input[type=number]{width:100%;font:inherit;padding:8px 10px;border:1px solid var(--ln);border-radius:6px;background:var(--bg);color:var(--ink)}
+input:focus-visible,button:focus-visible{outline:2px solid var(--k);outline-offset:2px}
+.out{background:var(--bg);border-left:4px solid var(--k);padding:12px 14px;margin-top:14px;border-radius:4px}
+.chips{display:flex;flex-wrap:wrap;gap:6px;margin:6px 0 12px}
+.chip,.btn{font:inherit;font-size:14px;border:1px solid var(--ln);background:var(--bg);color:var(--ink);border-radius:999px;padding:4px 12px;cursor:pointer}
+.chip[aria-pressed=true],.btn[aria-pressed=true]{background:var(--k);border-color:var(--k);color:#fff}
+.chk{display:flex;gap:8px;align-items:center;padding:4px 0}
+.chk input{width:18px;height:18px;accent-color:var(--k)}
+.lv{display:block;margin:4px auto;padding:10px 6px;border:0;color:#fff;font:700 14px "Noto Sans TC",sans-serif;cursor:pointer;border-radius:4px;background:var(--k)}
+.lv[aria-pressed=true]{outline:3px solid var(--ink)}
+.bar{height:26px;border-radius:4px;color:#fff;font-weight:700;font-size:14px;padding:0 10px;line-height:26px;margin:4px 0 10px;white-space:nowrap}
+.ov{overflow-x:auto}.dots{display:grid;grid-template-columns:repeat(20,1fr);gap:3px;max-width:360px;margin:6px 0}.dots i{aspect-ratio:1;border-radius:50%;background:var(--c3)}.dots i.x{background:transparent;border:1.5px solid var(--bad)}
+code{font-family:ui-monospace,monospace;font-size:14px;word-break:break-all}
+footer{padding:32px 0 48px;color:var(--mu);font-size:14px;text-align:center}
+@media(max-width:760px){.hero,.grid{grid-template-columns:1fr}}
+@media(prefers-reduced-motion:reduce){html{scroll-behavior:auto}}
+</style>
+</head>
+<body>
+<nav id="nav"></nav>
+<main>
+<div class="hero">
+ <div>
+  <h1>實證護理 5A<br><span style="font-family:Georgia,'Times New Roman',serif;font-style:italic;font-size:.55em;font-weight:400;letter-spacing:0">Evidence-Based Nursing（EBN）</span><br>讓每個照護決定都有依據</h1>
+  <p class="lead">以「睡前足部按摩能否改善住院病人睡眠」為例，跟著五個步驟走一遍。點選右側圓環，認識每個 A。</p>
+  <div id="panel" aria-live="polite"></div>
+ </div>
+ <svg id="cycle" viewBox="0 0 320 320" role="group" aria-label="5A 循環圖"></svg>
+</div>
+
+<section id="s1" style="--k:var(--c1)">
+ <h2><i>A1</i>Ask｜提出臨床問題</h2>
+ <p>好問題決定後面四步的方向。試著改寫下面的 PICO，看問句如何組成。</p>
+ <div class="grid">
+  <div class="card" style="grid-column:1/-1"><h3>先判斷：背景問題，還是前景問題？</h3><div style="display:grid;grid-template-columns:repeat(auto-fit,minmax(260px,1fr));gap:16px"><div style="border-left:4px solid var(--c2);padding-left:12px"><b>背景問題 Background</b><br>問基礎知識：疾病、處置或機轉是什麼、為什麼、如何運作。<div class="note">例：足部按摩可能透過哪些機轉影響睡眠？<br>回答來源：教科書、綜述、指引</div></div><div style="border-left:4px solid var(--c1);padding-left:12px"><b>前景問題 Foreground</b><br>比較特定照護選擇，同時包含介入、比較與結果。<div class="note">例：15分鐘足部按摩，相較常規照護，能否改善住院病人的睡眠？<br>回答來源：研究文獻，需要 PICO</div></div></div><h3 style="margin-top:18px">練習：這是哪一種問題？</h3><div id="qz"></div><div class="note" id="qzS"></div><div class="out">背景問題先釐清概念；有了基礎，再把「想知道哪個做法更好」轉成前景問題。<br>例：背景「失眠的病人為什麼睡不好？」→ 前景「睡眠品質不佳的住院成人，睡前足部按摩相較常規照護，能否提高 RCSQ 分數？」<br>新手通常需要較多背景知識，經驗增加後，前景問題會變多。只有前景問題才進入 PICO。</div></div><div class="card"><h3>PICO 組合器</h3>
+   <label class="f"><b>P</b> 對象與場域<input type="text" id="p" value="睡眠品質不佳的住院成人病人"></label>
+   <label class="f"><b>I</b> 具體介入<input type="text" id="i" value="睡前15分鐘足部按摩"></label>
+   <label class="f"><b>C</b> 比較條件<input type="text" id="c" value="常規照護"></label>
+   <label class="f"><b>O</b> 可測量結果<input type="text" id="o" value="RCSQ睡眠品質分數"></label>
+   <label class="f"><b>T</b> 時間（選填）<input type="text" id="t" value="連續三晚"></label>
+  </div>
+  <div class="card"><h3>你的前景問題</h3>
+   <div class="out" id="q"></div>
+   <div id="ck" style="margin-top:12px"></div>
+   <p class="note">背景問題問「為什麼」（教科書可答）；前景問題比較「哪個做法更好」，需要 PICO 與研究文獻。</p></div><div class='card' style='grid-column:1/-1'><h3>量性與質性：問題架構不同</h3><p class='note' style='margin:0 0 8px'>想知道「有沒有效」用量性的 PICO（或 PEO）；想了解「經驗與感受」用質性的 PICo。關鍵字要依問題類型擬定，並至少列出 3 個。點選架構：</p><div class='chips' id='fm'></div><div id='fmL'></div><div class='out' id='fmT'></div>
+  </div>
+ </div>
+</section>
+
+<section id="s2" style="--k:var(--c2)">
+ <h2><i>A2</i>Acquire｜尋找最佳證據</h2>
+ <p>先找整合證據，再補充原始研究；用 OR 擴大同義詞，用 AND 連接概念。</p>
+ <div class="grid">
+  <div class="card"><h3>證據搜尋順序（點選層級）</h3>
+   <div id="pyr"></div><div class="out" id="pyrT"></div>
+   <p class="note">層級是搜尋順序，是否適用仍要看品質與族群。</p>
+  </div>
+  <div class="card"><h3>搜尋式建構器</h3>
+   <div id="bool"></div>
+   <div class="out"><code id="bq"></code></div>
+   <button class="chip" id="copy" style="margin-top:10px">複製搜尋式</button> <a id='pm' class='chip' href='https://pubmed.ncbi.nlm.nih.gov/' target='_blank' rel='noopener' style='display:inline-block;text-decoration:none;margin-top:10px'>在 PubMed 開啟這組搜尋式</a><p class='note'>上方按鈕會把目前的搜尋式帶入 PubMed；也可以直接前往 <a href='https://pubmed.ncbi.nlm.nih.gov/' target='_blank' rel='noopener' style='color:var(--k);font-weight:700'>PubMed 首頁</a>（https://pubmed.ncbi.nlm.nih.gov/）。</p>
+   <p class="note">C 與 T 通常不放入搜尋式，避免漏掉研究。請記錄資料庫、日期、完整搜尋式與結果數。</p></div><div class='card' style='grid-column:1/-1'><h3>延伸資源與搜尋功能清單</h3><p style='margin:0 0 10px'><a href='https://sunfloraf-sketch.github.io/sr-ebm-happy-searchhen/' target='_blank' rel='noopener' style='color:var(--k);font-weight:700'>搜尋實作網站（外部連結，另開新分頁）</a></p><div style='display:grid;grid-template-columns:repeat(auto-fit,minmax(220px,1fr));gap:10px;font-size:14px'><div style='border-left:4px solid var(--k);padding-left:10px'><b>合併搜尋（combine searches）</b><br>把各概念群的結果用 AND／OR 組合。</div><div style='border-left:4px solid var(--k);padding-left:10px'><b>進階搜尋（Advanced search）</b><br>分欄輸入概念、指定欄位與主題詞。</div><div style='border-left:4px solid var(--k);padding-left:10px'><b>條件限制</b><br>年代、全文、研究設計、語言。</div><div style='border-left:4px solid var(--k);padding-left:10px'><b>判別並下載全文</b><br>確認有無 PDF 或全文；取得困難要另外記錄。</div></div><p class='note'>建議使用一個中文資料庫，再加上 Cochrane Library 與另一個英文資料庫（CINAHL、Medline／PubMed 或 Embase）。</p></div><div class='card' style='grid-column:1/-1'><h3>搜尋與篩選流程圖（教學示例，數字可修改）</h3><div id='fcIn' style='display:grid;grid-template-columns:repeat(auto-fit,minmax(170px,1fr));gap:4px 14px'></div><div id='fcOut' style='margin-top:14px'></div><p class='note'>全文取得困難屬於存取問題，要與「不符合條件」的排除原因分開記錄。流程圖搭配資料庫、搜尋日期與完整搜尋式，讓別人能重複你的搜尋。</p>
+  </div>
+ </div>
+</section>
+
+<section id="s3" style="--k:var(--c3)">
+ <h2><i>A3</i>Appraise｜評讀文獻</h2>
+ <p>依序問三件事：可信嗎（Validity）？效果多大（Importance）？用得上嗎（Applicability）？</p>
+ <div class="grid">
+  <div class='card' style='grid-column:1/-1'><h3>評讀工具：依研究設計選檢核表</h3><p class='note' style='margin:0 0 8px'>先用 VIA 三問組織思考（可信嗎？效果多大？用得上嗎？），再用檢核表逐題檢視。工具幫助提問，不是計分考試，不能用勾選總分取代專業判斷。點選研究設計：</p><div class='chips' id='tl'></div><div class='out' id='tlT'></div></div><div class='card'><h3>證據等級：看研究設計（治療效果）</h3><div class='chips' id='lvS'></div><div id='lvL'></div><p class='note'>等級只是起點：高等級研究若有嚴重偏差仍可能不可信，設計較低但很嚴謹的研究也要評讀。分級版本會更新，使用時請查閱最新版。</p></div><div class='card'><h3>GRADE：整體證據的確信度</h3><div class='chips' id='gS'></div><div style='font-size:14px;font-weight:700'>降級理由（各 −1）</div><div id='gD'></div><div style='font-size:14px;font-weight:700;margin-top:6px'>升級理由（僅觀察性研究且無降級時）</div><div id='gU'></div><div id='gM' style='display:flex;gap:4px;margin:12px 0'></div><div class='out' id='gT'></div><button class='chip' id='gCase' style='margin-top:10px'>套用按摩案例（教學示例）</button><p class='note'>GRADE 另會給「建議強度」（強或弱），需再納入病人偏好與資源，即下一步 Apply。</p></div><div class='card' style='grid-column:1/-1'><h3>GRADE 與 Core GRADE：怎麼從證據走到建議？</h3><div style='display:grid;grid-template-columns:repeat(auto-fit,minmax(260px,1fr));gap:16px;font-size:14px'><div style='border-left:4px solid var(--k);padding-left:12px'><b>GRADE</b><br>國際通用的方法，做兩件事：①評定整體證據的<b>確信度</b>（高、中、低、極低）；②依證據與其他考量，給出<b>建議強度</b>（強，或有條件／弱）。常用於系統性回顧與臨床指引。</div><div style='border-left:4px solid var(--k);padding-left:12px'><b>Core GRADE（2025）</b><br>BMJ 在 2025 年發表的七篇系列文章，把二十年來分散的 GRADE 指引整理成「核心精簡版」，聚焦單一介入對單一比較、從個別病人角度所需的關鍵判斷：用 PICO 界定問題、評定確信度（偏差風險、不一致、不精確、間接性等），再從證據走到建議。</div><div style='border-left:4px solid var(--k);padding-left:12px'><b>評讀時怎麼用？</b><br>讀系統性回顧或指引時，先看它有沒有報告確信度與理由；自己整合多篇研究時，可用上方的 GRADE 工具練習降級與升級。</div></div><h3 style='margin-top:16px'>從確信度到建議強度（Core GRADE 原則，練習）</h3><div style='font-size:14px;font-weight:700'>證據確信度</div><div class='chips' id='cgC'></div><div style='font-size:14px;font-weight:700'>利弊平衡 / Balance of benefits and harms</div><div class='chips' id='cgB'></div><button class='chip' id='cgCase'>套用按摩案例（確信度低、利明顯大於弊）</button><div class='out' id='cgT'></div><p class='note'>建議強度的主要考量：利益、傷害與負擔的平衡、證據確信度，以及病人的價值觀與偏好；次要考量（尤其從群體角度）包括成本、可行性、可接受性與公平性。Core GRADE 一般只在確信度高或中時給強建議。資料來源：Guyatt G 等，Core GRADE 系列，BMJ 2025;389。</div><div class="card" style="grid-column:1/-1"><h3>森林圖：效果量與 95% 信賴區間</h3>
+   <div class="chips" id="sc"></div>
+   <div class="ov"><svg id="forest" viewBox="0 0 600 150" style="min-width:480px;width:100%"></svg></div>
+   <label class="f">臨床重要差異（教學假設）：<b id="mv"></b> 分
+    <input type="range" id="mcid" min="0" max="20" value="8" style="width:100%;accent-color:var(--k)"></label>
+   <div class="out" id="fx"></div>
+   <p class="note">重要門檻（MCID）是病人「剛好感受得到改善」的最小差異，依量表與族群而定，此處為教學假設。判讀兩步驟：先看 95% CI 在 0 的哪一側（有沒有差異），再看 CI 與門檻的關係（差異重不重要）。數字僅為教學示例，不代表特定研究結果。</p><div style="display:grid;grid-template-columns:repeat(auto-fit,minmax(220px,1fr));gap:8px;margin-top:12px;font-size:14px"><div style="border-left:4px solid var(--c5);padding-left:10px"><b>CI 整段在門檻右側</b><br>有臨床意義，可考慮採用，再評估適用性。</div><div style="border-left:4px solid var(--c4);padding-left:10px"><b>CI 在 0 右側但跨越門檻</b><br>方向有利，但臨床意義不確定，建議小規模試行並監測。</div><div style="border-left:4px solid var(--c4);padding-left:10px"><b>CI 跨越 0</b><br>無法排除沒有效果，不宜只憑點估計採用。</div><div style="border-left:4px solid var(--bad);padding-left:10px"><b>CI 整段低於門檻</b><br>即使最好情況，病人也未必有感，不值得投入。</div></div>
+  </div>
+  <div class='card' style='grid-column:1/-1'><h3>勝算比（OR）森林圖：結果是「有／沒有」時怎麼看？</h3><p class='note' style='margin:0 0 8px'>當結果是二分類（例如睡眠有改善／沒改善），效果量常用 OR。平均差的「無差異」是 0，OR 的「無差異」是 1。可修改下列人數（教學示例）。</p><div id='orIn' style='display:grid;grid-template-columns:repeat(auto-fit,minmax(150px,1fr));gap:4px 14px'></div><div class='ov'><svg id='orF' viewBox='0 0 600 135' style='min-width:480px;width:100%'></svg></div><div class='out' id='orT'></div><p class='note'>橫軸為對數刻度，所以信賴區間通常左右不對稱。若結果是不好的事件（例如不良反應），OR 小於 1 才代表介入組較好，判讀前先確認結果的方向。數字僅為教學示例，不代表特定研究結果。</p></div><div class='card' style='grid-column:1/-1'><h3>NNT／NNH：把效果換成「要治療幾個人」</h3><div style='display:grid;grid-template-columns:repeat(auto-fit,minmax(240px,1fr));gap:12px;font-size:14px;margin-bottom:12px'><div style='border-left:4px solid var(--c5);padding-left:10px'><b>NNT（需治療人數）</b><br>多治療幾位病人，才會多 1 位得到好處。<br>NNT＝1 ÷ 絕對改善差（ARR）。</div><div style='border-left:4px solid var(--bad);padding-left:10px'><b>NNH（需傷害人數）</b><br>多治療幾位病人，才會多 1 位受到傷害。<br>NNH＝1 ÷ 絕對傷害差（ARI）。</div><div style='border-left:4px solid var(--c3);padding-left:10px'><b>LHH（得益對受害的機會比）</b><br>LHH＝NNH ÷ NNT。大於 1，表示得益的機會大於受害的機會。</div></div><div id='nnIn' style='display:grid;grid-template-columns:repeat(auto-fit,minmax(190px,1fr));gap:4px 14px'></div><div class='out' id='nnT'></div><div style='font-size:14px;margin-top:12px'><b>判讀提醒</b><br>① NNT 越小越好，NNH 越大越安全。<br>② 慣例 NNT 無條件進位、NNH 無條件捨去，結果較保守。<br>③ NNT／NNH 取決於基線風險與觀察時間（本例為三晚），不同族群不能直接套用。<br>④ 若絕對差的 95% CI 跨越 0，NNT 的區間會同時涵蓋「有益」與「有害」，不宜只報單一數字。<br>⑤ 要同時看 NNT 與 NNH，並納入病人的偏好與負擔。教學示例數字，不代表特定研究。</div></div><div class="card" style="grid-column:1/-1"><h3>流失不平衡：為什麼會讓結果不可信？</h3>
+   <div style='font-size:14px;font-weight:700'>起始：每組各 100 人，隨機分派，兩組條件相近（實心＝完成追蹤，空心＝流失）</div><div style='font-size:14px;margin-top:8px'>介入組（按摩）：<b id='lossA'>35</b> 人流失</div><div class='dots' id='dA'></div><label class='f' style='font-size:13px'>拖曳調整介入組流失人數<input type='range' id='lossS' min='0' max='40' value='35' style='width:100%;accent-color:var(--k)'></label>
+   <div style='font-size:14px;margin-top:8px'>對照組（常規照護）：<b>8</b> 人流失</div><div class='dots' id='dC'></div>
+   <div class='out' id='lossT'></div><div style='font-size:14px;margin-top:12px'><b>為什麼不可信？</b>隨機分派保證兩組「一開始」相近。但之後離開的人數不同、原因又不同，留下來比較的兩群人就不再可比。<br><b>具體例子：</b>若介入組中睡得最差、覺得按摩不舒服的人先退出，剩下的人睡眠本來就較好，平均分數被墊高，看起來像按摩有效，其實不是。所以即使 p＝0.04，也不能直接採用。<br><b>怎麼檢查：</b>① 看受試者流程圖（CONSORT）每組剩多少人；② 流失原因有沒有說明、兩組是否相近；③ 是否依原分派組別分析（意向治療分析，ITT）；④ 有沒有敏感度分析（假設流失者結果最差或最好，結論會不會改變）。</div>
+  </div>
+  <div class="card" style="grid-column:1/-1"><h3>RCT 可信度四項檢核（點選查看）</h3>
+   <div id="rct"></div><div class="out" id="rctT"></div>
+  </div>
+ </div>
+</section>
+
+<section id="s4" style="--k:var(--c4)">
+ <h2><i>A4</i>Apply｜整合並應用</h2>
+ <p>研究回答「可能有效」；Apply 回答「此時、此人、此地怎麼做」。</p>
+ <div class="grid">
+  <div class="card"><h3>四項資訊缺一不可（點選）</h3>
+   <svg id="venn" viewBox="0 0 300 270" style="width:100%;max-width:360px;display:block;margin:auto"></svg>
+   <div class="out" id="vennT"></div>
+  </div>
+  <div class="card"><h3>床邊安全檢核</h3>
+   <div id="scr"></div><div class="out" id="scrT"></div>
+   <p class="note">介入流程：受訓護理師、雙側足部溫和按摩、每次15分鐘、睡前固定時段、連續三晚。先小規模試行，不從一篇文章直接跳到全病房常規。</p></div><div class="card" style="grid-column:1/-1"><h3>共享決策：讓病人參與選擇</h3><div style="display:grid;grid-template-columns:repeat(auto-fit,minmax(200px,1fr));gap:8px;margin-bottom:12px;font-size:14px"><div style="border-top:4px solid var(--c4);padding-top:6px"><b>① 護理師說明</b><br>效益、做法、不確定性與其他選項</div><div style="border-top:4px solid var(--c4);padding-top:6px"><b>② 病人表達</b><br>意願、偏好與優先順序</div><div style="border-top:4px solid var(--c4);padding-top:6px"><b>③ 共同決定</b><br>接受、調整或拒絕，並記錄</div></div><div style="display:grid;grid-template-columns:repeat(auto-fit,minmax(240px,1fr));gap:16px;font-size:14px"><div><b>護理師提供</b><ul style="margin:4px 0;padding-left:20px"><li>目前證據可能帶來的效益</li><li>按摩方式、時間與可能不適</li><li>不按摩或其他助眠方式</li></ul></div><div><b>病人表達</b><ul style="margin:4px 0;padding-left:20px"><li>是否願意被觸碰及偏好部位</li><li>對睡眠、隱私與舒適的優先順序</li><li>是否希望家屬在場或隨時停止</li></ul></div></div><div class="out" style="font-size:14px"><b>說明示範</b>：目前研究顯示睡前足部按摩可能改善睡眠，但證據仍有不確定性。做法是雙側足部溫和按摩約15分鐘，可能會有些不適。您可以接受、調整，也可以不按摩或改用其他助眠方式，隨時都能喊停。您比較在意什麼？</div><h3 style="margin-top:16px">練習：依病人回應調整做法</h3><div id="sdq"></div><div class="out" id="sdT"></div><p class="note">共同決策不是要求病人同意，而是支持知情且符合偏好的選擇。
+  </div>
+ </div>
+</section>
+
+<section id="s5" style="--k:var(--c5)">
+ <h2><i>A5</i>Assess｜評估與持續改善</h2>
+ <p>同時看結果、過程、平衡與病人經驗。結果未改善，不一定代表介入無效。</p>
+ <div class="grid">
+  <div class="card" style="grid-column:1/-1"><h3>試行兩週的 RCSQ 走勢（教學示例）</h3>
+   <div class="chips" id="rs"></div>
+   <div class="ov"><svg id="run" viewBox="0 0 600 230" style="min-width:480px;width:100%"></svg></div>
+   <div class="out" id="rsT"></div>
+  </div>
+  <div class='card' style='grid-column:1/-1'><h3>指標計算與決策儀表板（教學示例，數字可自行修改）</h3><p class='note' style='margin:0 0 8px'>試著把「實際完成次數」改成 30，或把「試行後 RCSQ」改成 53，看建議行動如何改變。</p><div id='dbIn' style='display:grid;grid-template-columns:repeat(auto-fit,minmax(210px,1fr));gap:4px 16px'></div><div id='dbOut' style='margin-top:12px'></div><div class='out' id='dbAct'></div><p class='note'>目標值為教學假設；實際應先量基線、參考研究效果與可行性，在試行前定好目標與行動規則，避免事後只挑好看的結果。單一病房的前後比較無法排除其他因素，需搭配落差診斷與持續監測。</p></div><div class="card"><h3>四類指標</h3>
+   <div id="ind"></div>
+  </div>
+  <div class="card"><h3>PDCA 改善循環</h3>
+   <div id="pdca"></div><div class="out" id="pdcaT"></div>
+  </div>
+ </div>
+</section>
+<section id='s7' style='--k:var(--c3)'><h2><i>＋</i>統計與研究設計速查</h2><p>評讀常遇到的名詞一次整理，每張卡片都可以操作。數字皆為教學示例，不代表特定研究結果。</p><div class='grid'><div class='card'><h3>① PICO 與研究設計、報告指引（Reporting guideline）</h3><p class='note' style='margin:0 0 8px'>先判斷問題類型，再決定問題架構與最適合的研究設計。</p><div class='chips' id='dz'></div><div class='out' id='dzT'></div></div><div class='card'><h3>② 干擾因子（Confounding factor）</h3><div class='chips' id='cf'></div><div id='cfB'></div><div class='out' id='cfT'></div></div><div class='card'><h3>③ 追蹤（Follow-up）、ITT 與 Per-protocol 分析</h3><div class='chips' id='itC'></div><div class='dots' id='itD'></div><div class='out' id='itT'></div></div><div class='card'><h3>④ RR、OR 與 HR（Hazard ratio）</h3><div class='chips' id='hrC'></div><div class='out' id='hrT'></div><div class='ov'><svg id='km' viewBox='0 0 420 205' style='min-width:340px;width:100%'></svg></div></div><div class='card'><h3>⑤ P 值（P value）：回答什麼，不回答什麼</h3><div class='chips' id='pvC'></div><div class='out' id='pvT'></div><p class='note'>P 值回答：若真實沒有差異，看到目前或更極端資料的機率有多低。不回答：假設為真的機率、效果大小、臨床重要性、有沒有偏差。檢定次數越多，越容易出現假陽性（多重比較）。</p></div><div class='card'><h3>⑥ 診斷準確度：敏感度、特異度與概似比</h3><div id='dxIn' style='display:grid;grid-template-columns:repeat(auto-fit,minmax(150px,1fr));gap:4px 12px'></div><div class='out' id='dxT'></div><label class='f'>檢查前機率（盛行率）：<b id='prv'></b>%<input type='range' id='pre' min='1' max='99' value='33' style='width:100%;accent-color:var(--k)'></label><div class='out' id='dxP'></div><p class='note'>SnNout：高敏感度的陰性結果可協助排除疾病；SpPin：高特異度的陽性結果可協助確認疾病。經驗上 LR+ 大於 10 或 LR− 小於 0.1，會大幅改變疾病機率。注意：這裡的敏感度是診斷檢查的性質；研究報告中的「敏感度分析（Sensitivity analysis）」是改變假設或排除部分研究，看結論會不會改變，兩者不同。</p></div><div class='card' style='grid-column:1/-1'><h3>⑦ 統合分析：森林圖、統計異質性、固定與隨機效應</h3><div style='font-size:14px;font-weight:700'>研究結果</div><div class='chips' id='msC'></div><div style='font-size:14px;font-weight:700'>合併模型</div><div class='chips' id='mdC'></div><div class='ov'><svg id='mf' viewBox='0 0 600 250' style='min-width:480px;width:100%'></svg></div><div class='out' id='mT'></div><div style='display:grid;grid-template-columns:repeat(auto-fit,minmax(260px,1fr));gap:12px;font-size:14px;margin-top:12px'><div style='border-left:4px solid var(--k);padding-left:10px'><b>固定效應模型（Fixed-effect model）</b><br>假設所有研究在估計同一個真實效果，差異只來自抽樣誤差。權重只看精確度，大型研究影響很大。適合族群、介入與測量高度相似時。</div><div style='border-left:4px solid var(--k);padding-left:10px'><b>隨機效應模型（Random-effects model）</b><br>假設真實效果會因研究而異（族群、劑量、場域不同），估計的是「效果分布的平均」。權重較平均，CI 較寬，也較保守。</div><div style='border-left:4px solid var(--k);padding-left:10px'><b>統計異質性（Statistical heterogeneity）</b><br>Q 檢定看差異是否超過機遇；I² 表示總變異中來自真實差異的比例，約 25%、50%、75% 可視為低、中、高。I² 高時先找原因（族群、介入、測量、偏差風險），可做次群組分析，不要只因數字就機械切換模型。</div></div></div><div class='card' style='grid-column:1/-1'><h3>⑧ 發表偏差（Publication bias）與漏斗圖（Funnel plot）</h3><div class='chips' id='fnC'></div><div class='ov'><svg id='fnS' viewBox='0 0 420 265' style='min-width:340px;max-width:520px;width:100%'></svg></div><div class='out' id='fnT'></div></div><div class='card' style='grid-column:1/-1'><h3>⑨ 知識轉譯（Knowledge translation, KT）</h3><p class='note' style='margin:0 0 8px'>KT 是把研究證據轉成實際照護行動的整個過程。研究結論回答「可能有效」，KT 回答「怎麼讓它在單位真的發生」。下面依 Knowledge-to-Action（KTA）循環（Graham 等人，2006）逐步對應足部按摩案例。</p><div class='chips' id='ktC'></div><div class='out' id='ktT'></div></div><div class='card' style='grid-column:1/-1'><h3>⑩ 明智選擇（Choosing Wisely）</h3><p class='note' style='margin:0 0 8px'>Choosing Wisely 是 2012 年由美國 ABIM Foundation 發起的倡議，鼓勵醫療人員與病人討論可能不必要或低價值（low-value care）的檢查與處置。它和共享決策（SDM）相連：好的決定也包含「不做什麼」。點選病人可問的五個問題：</p><div class='chips' id='cwC'></div><div class='out' id='cwT'></div><p class='note'>用在睡眠主題：夜間每一次叫醒都有代價，值得檢視哪些常規處置對病人真的必要。是否屬低價值照護，需依病人風險與單位指引判斷。中文常譯為「明智選擇」，用語可能因單位而異。</p></div></div></section><section id='s6' style='--k:var(--c1)'><h2><i>＋</i>實作與報告｜把 3A 變成一份成果</h2><p>課程作業聚焦前三個 A（Ask、Acquire、Appraise），再加上文獻統整，最後以六段式報告呈現；Apply 與 Assess 則是回到單位實踐時的下一步。</p><div class='grid'><div class='card'><h3>成果報告六段式（點選查看寫什麼）</h3><div id='rp'></div><div class='out' id='rpT'></div></div><div class='card'><h3>小組實作流程</h3><div id='wf'></div></div></div></section><section id='s8' style='--k:var(--c5)'><h2><i>＋</i>實證能力自我檢核</h2><p>學完整套內容後，勾選你已具備的能力，看看還可以優先補強哪一項。</p><div class='card'><h3>實證能力自我檢核（勾選已具備的能力）</h3><div id='cl'></div><div class='out' id='clT'></div><h3 style='margin-top:16px'>配分比重：搜尋與評讀占多數</h3><div id='wt'></div><p class='note'>配分取自一份常見的實證能力評核表設定，各單位可能不同，僅供參考。</p></div></section><footer>台南市護理師公會｜5A實證護理系列課程<br>從一個臨床困惑開始，完成可說明、可檢驗、可改善的照護決策。</footer>
+</main>
+<script>
+const $=s=>document.querySelector(s),NS='http://www.w3.org/2000/svg';
+const E=(h,p)=>{p.insertAdjacentHTML('beforeend',h)};
+const S=[
+{k:'Ask',z:'提出問題',v:'--c1',h:'把臨床困惑變成可回答的問題',p:['辨認臨床困惑與問題類型','用 PICO 拆解對象、介入、比較、結果','寫出可直接搜尋的前景問題']},
+{k:'Acquire',z:'尋找證據',v:'--c2',h:'以合理時間找到最相關、最可信的證據',p:['先找指引與系統性回顧，再補原始研究','同義詞用 OR，概念用 AND','留下可重複的搜尋紀錄']},
+{k:'Appraise',z:'評讀文獻',v:'--c3',h:'先可信，再重要，最後談適用',p:['檢視隨機、分派隱匿、盲化與流失','效果量與 95% CI 比單看 p 值更有資訊','評估病人、資源與安全']},
+{k:'Apply',z:'臨床應用',v:'--c4',h:'整合證據、專業、偏好與資源',p:['確認適用對象、禁忌與安全條件','把介入寫成可複製流程','先小規模試行再調整']},
+{k:'Assess',z:'評估改善',v:'--c5',h:'確認病人受益，流程可持續',p:['結果、過程、平衡、病人經驗四類指標','未改善時先診斷執行、量測與情境','資料引導下一輪 Ask']}];
+// nav
+S.forEach((s,i)=>E(`<a href="#s${i+1}" style="--k:var(${s.v})">${s.k}</a>`,$('#nav')));
+// cycle
+const cy=$('#cycle');let act=0;
+function drawCycle(){cy.innerHTML='<circle cx="160" cy="160" r="110" fill="none" stroke="var(--ln)" stroke-width="2" stroke-dasharray="4 6"/><text x="160" y="156" text-anchor="middle" font-size="16" font-weight="700" fill="var(--ink)">實證護理</text><text x="160" y="178" text-anchor="middle" font-size="13" fill="var(--mu)">循環不止於 5</text>';
+S.forEach((s,i)=>{const a=(-90+i*72)*Math.PI/180,x=160+110*Math.cos(a),y=160+110*Math.sin(a),on=i===act;
+cy.insertAdjacentHTML('beforeend',`<g class="node" tabindex="0" role="button" aria-label="${s.k} ${s.z}" data-i="${i}"><circle cx="${x}" cy="${y}" r="${on?36:29}" fill="var(${s.v})"/><text x="${x}" y="${y+5}" text-anchor="middle" font-size="${on?14:12}" font-weight="700" fill="#fff">${s.k}</text></g>`)});
+cy.querySelectorAll('.node').forEach(n=>{const go=()=>{act=+n.dataset.i;drawCycle();panel()};n.onclick=go;n.onkeydown=e=>{if(e.key==='Enter'||e.key===' '){e.preventDefault();go();cy.querySelector(`[data-i="${act}"]`).focus()}}})}
+function panel(){const s=S[act],p=$('#panel');p.style.setProperty('--k',`var(${s.v})`);p.innerHTML=`<h3>${act+1}. ${s.k}｜${s.z}</h3><p style="margin:4px 0;color:var(--mu)">${s.h}</p><ul>${s.p.map(t=>`<li>${t}</li>`).join('')}</ul><a href="#s${act+1}">看互動範例</a>`}
+drawCycle();panel();
+// Ask
+const ids=['p','i','c','o','t'];
+function pico(){const v=ids.map(i=>$('#'+i).value.trim()),[p,i,c,o,t]=v;
+$('#q').textContent=`在${p||'＿＿'}中，${t?t+'，':''}${i||'＿＿'}相較於${c||'＿＿'}，是否能改善${o||'＿＿'}？`;
+$('#ck').innerHTML=[['對象清楚',p],['介入可複製',i],['比較條件明確',c],['結果可測量',o]].map(([l,x])=>`<div>${x?'✅':'⬜'} ${l}</div>`).join('')}
+ids.forEach(i=>$('#'+i).oninput=pico);pico();
+// Acquire pyramid
+const L=[['臨床指引／證據摘要','直接支援照護決策，最先查詢。',40],['系統性回顧／統合分析','整合多篇研究結果；先確認是否已有高品質回顧。',58],['隨機對照試驗（RCT）','評估按摩介入效果的主要原始研究。',76],['觀察研究與其他設計','補充安全性、接受度與情境。',94]];
+L.forEach((l,i)=>E(`<button class="lv" style="width:${l[2]}%;opacity:${1-i*.15}" data-i="${i}" aria-pressed="false">${l[0]}</button>`,$('#pyr')));
+function lv(i){document.querySelectorAll('.lv').forEach((b,j)=>b.setAttribute('aria-pressed',i===j));$('#pyrT').textContent=L[i][1]}
+document.querySelectorAll('.lv').forEach(b=>b.onclick=()=>lv(+b.dataset.i));lv(0);
+// Boolean
+const B=[['P 對象',['inpatient*','"hospitalized patient*"','"adult inpatient*"']],['I 介入',['"foot massage"','reflexology','"massage therapy"']],['O 結果',['"sleep quality"','sleep','insomnia','"sleep disturbance"']]];
+const on=B.map((g,gi)=>g[1].map((_,i)=>i<(gi==2?3:3)&&!(gi==2&&i==3)));
+function bq(){const parts=B.map((g,gi)=>{const t=g[1].filter((_,i)=>on[gi][i]);return t.length?'('+t.join(' OR ')+')':''}).filter(Boolean);
+const q=parts.join(' AND ');$('#bq').textContent=q||'請至少選擇一個關鍵詞';const a=$('#pm');if(a)a.href='https://pubmed.ncbi.nlm.nih.gov/'+(q?'?term='+encodeURIComponent(q):'')}
+B.forEach((g,gi)=>{E(`<div style="font-size:14px;font-weight:700">${g[0]}</div><div class="chips"></div>`,$('#bool'));const w=$('#bool').lastElementChild;
+g[1].forEach((t,i)=>{const b=document.createElement('button');b.className='chip';b.textContent=t.replace(/"/g,'');b.setAttribute('aria-pressed',on[gi][i]);b.onclick=()=>{on[gi][i]=!on[gi][i];b.setAttribute('aria-pressed',on[gi][i]);bq()};w.appendChild(b)})});bq();
+$('#copy').onclick=function(){try{navigator.clipboard.writeText($('#bq').textContent);this.textContent='已複製'}catch(e){this.textContent='請手動選取複製'}};
+// Forest
+const SC={A:['研究 A：平均差 +12',12,4,20],B:['研究 B：平均差 +5',5,-3,13],C:['研究 C：平均差 +2',2,-6,10]};let sk='A';
+Object.keys(SC).forEach(k=>{const b=document.createElement('button');b.className='chip';b.textContent=SC[k][0];b.dataset.k=k;b.onclick=()=>{sk=k;forest()};$('#sc').appendChild(b)});
+const fx=v=>40+(v+10)*13;
+function forest(){const [n,m,lo,hi]=SC[sk],t=+$('#mcid').value;$('#mv').textContent=t;
+document.querySelectorAll('#sc .chip').forEach(b=>b.setAttribute('aria-pressed',b.dataset.k===sk));
+let g='';for(let v=-10;v<=30;v+=10)g+=`<line x1="${fx(v)}" x2="${fx(v)}" y1="100" y2="106" stroke="var(--mu)"/><text x="${fx(v)}" y="124" text-anchor="middle" font-size="13" fill="var(--mu)">${v}</text>`;
+$('#forest').innerHTML=`<line x1="40" x2="560" y1="100" y2="100" stroke="var(--mu)"/>${g}<line x1="${fx(0)}" x2="${fx(0)}" y1="20" y2="100" stroke="var(--ink)" stroke-width="2"/><text x="${fx(0)}" y="14" text-anchor="middle" font-size="12" fill="var(--ink)">0＝無差異</text><line x1="${fx(t)}" x2="${fx(t)}" y1="30" y2="100" stroke="var(--c4)" stroke-width="2" stroke-dasharray="5 4"/><text x="${fx(t)}" y="24" text-anchor="middle" font-size="12" fill="var(--c4)">重要門檻</text><line x1="${fx(lo)}" x2="${fx(hi)}" y1="65" y2="65" stroke="var(--c3)" stroke-width="5" stroke-linecap="round"/><rect x="${fx(m)-8}" y="57" width="16" height="16" fill="var(--c3)"/><text x="${fx(m)}" y="52" text-anchor="middle" font-size="13" font-weight="700" fill="var(--ink)">+${m}（${lo} 至 ${hi}）</text><text x="300" y="146" text-anchor="middle" font-size="12" fill="var(--mu)">RCSQ 平均差（正值＝按摩組較好）</text>`;
+let vd,vc,vx;
+if(lo>=t){vd='有臨床意義';vc='var(--c5)';vx='整段 CI 都超過門檻：即使真實效果落在最保守的一端，病人仍可能有感。'}
+else if(lo>0&&hi<t){vd='統計上有差異，臨床上不重要';vc='var(--bad)';vx='整段 CI 都低於門檻：即使效果最好，病人也未必感受得到。'}
+else if(lo>0){vd='臨床意義不確定';vc='var(--c4)';vx='CI 跨越門檻：真實效果可能小到病人無感，也可能大到有感。建議小規模試行並監測。'}
+else if(hi<t){vd='沒有顯示臨床意義';vc='var(--bad)';vx='CI 跨越 0，且最好的情況也未達門檻。'}
+else{vd='無法下結論';vc='var(--c4)';vx='CI 跨越 0 又涵蓋門檻：可能無效，也可能有重要效果，需要更大、更精確的研究。'}
+$('#fx').style.borderColor=vc;
+$('#fx').innerHTML=`<b>① 方向</b>：平均差 ${m>0?'+':''}${m} 分，${m>0?'按摩組分數較高':m<0?'按摩組分數較低':'兩組相同'}。<br><b>② 大小</b>：平均差 ${m} 分，${m>=t?'達到':'未達'}重要門檻（${t} 分）。<br><b>③ 精確度</b>：95% CI ${lo} 至 ${hi} 分（寬 ${hi-lo} 分），真實效果可能小到 ${lo} 分、大到 ${hi} 分。<br><b>④ 臨床意義</b>：<b style="color:${vc}">${vd}</b>。${vx}`}
+$('#mcid').oninput=forest;forest();
+// RCT
+const R=[['隨機序列',`<b>問什麼</b>：怎麼決定誰進哪一組？<br><b>白話</b>：用抽籤式的方法分組，讓兩組一開始就相近，連看不見的因素也相近。<br><b>可信的做法</b>：電腦亂數、亂數表、區塊隨機。<br><b>警訊</b>：依床號、單雙日、入院順序或護理師決定（準隨機）。<br><b>在哪裡找</b>：方法段的「隨機化」。`],['分派隱匿',`<b>問什麼</b>：收案的人在決定病人要不要納入時，能不能預知他會被分到哪一組？<br><b>白話</b>：分組結果要「在病人納入之後才揭曉」，避免收案者挑病人。<br><b>可信的做法</b>：中央電話或網路系統分派、密封不透明編號信封。<br><b>警訊</b>：公開的輪替表或排班表，收案者可預測下一位進哪一組。<br><b>與隨機序列的差別</b>：序列問「怎麼產生」，隱匿問「分派前能否被預知」。`],['盲化',`<b>問什麼</b>：誰不知道分組？<br><b>白話</b>：按摩無法讓病人與執行者盲化，所以重點是「結果評估者」是否盲化，或結果是否為客觀測量。<br><b>可信的做法</b>：評估者與資料分析者不知分組。<br><b>警訊</b>：沒說誰盲化；或由知道分組的人評分。RCSQ 由病人自填，容易受期待影響，判讀時要降低把握。`],['流失與分析',`<b>問什麼</b>：追蹤到最後剩多少人？兩組是否相近？怎麼分析？<br><b>可信的做法</b>：流失低且兩組相近、說明原因、依原分組分析（ITT）。<br><b>警訊</b>：兩組流失差距大、原因未說明、只分析完成者。<br>可在上方拖曳流失人數，看差距如何改變判讀。`]];
+R.forEach((r,i)=>E(`<button class="chip" style="margin:0 6px 6px 0" data-i="${i}" aria-pressed="false">${r[0]}</button>`,$('#rct')));
+document.querySelectorAll('#rct .chip').forEach(b=>b.onclick=()=>{document.querySelectorAll('#rct .chip').forEach(x=>x.setAttribute('aria-pressed',x===b));$('#rctT').innerHTML=R[b.dataset.i][1]});
+document.querySelector('#rct .chip').click();
+// Venn
+const V=[['研究證據','足部按摩對睡眠的效果與不確定性',110,100,'--c3'],['臨床專業','按摩技術、皮膚評估與病況判斷',190,100,'--c1'],['病人偏好','是否願意、舒適度、文化與隱私',110,165,'--c4'],['場域資源','夜班人力、時間、空間與紀錄流程',190,165,'--c5']];
+$('#venn').innerHTML=V.map((v,i)=>`<g class="node" tabindex="0" role="button" aria-label="${v[0]}" data-i="${i}"><circle cx="${v[2]}" cy="${v[3]}" r="62" fill="var(${v[4]})" fill-opacity=".35" stroke="var(${v[4]})" stroke-width="2"/><text x="${v[2]+(i%2?26:-26)}" y="${v[3]+(i<2?-22:34)}" text-anchor="middle" font-size="13" font-weight="700" fill="var(--ink)">${v[0]}</text></g>`).join('')+'<text x="150" y="136" text-anchor="middle" font-size="12" font-weight="700" fill="var(--ink)">決策</text>';
+document.querySelectorAll('#venn .node').forEach(n=>{const go=()=>{$('#vennT').textContent=V[n.dataset.i][0]+'：'+V[n.dataset.i][1]};n.onclick=go;n.onkeydown=e=>{if(e.key==='Enter'||e.key===' '){e.preventDefault();go()}}});
+$('#vennT').textContent='沒有任何一項可以單獨決定是否採用介入。點選圓圈查看內容。';
+// Screening
+const F=['足部有傷口','急性發炎','疑似血栓','明顯循環問題','劇烈疼痛','病人不願意或要求停止'];
+F.forEach((f,i)=>E(`<label class="chk"><input type="checkbox" data-i="${i}">${f}</label>`,$('#scr')));
+function scr(){const n=[...document.querySelectorAll('#scr input')].filter(x=>x.checked).length;const o=$('#scrT');
+o.style.borderColor=n?'var(--bad)':'var(--c5)';o.textContent=n?'暫緩或轉介：不要執行足部按摩，改評估原因或提供其他助眠方式。':'目前無警訊：說明效益與不確定性，確認隱私與皮膚狀況後，由病人決定是否接受。'}
+document.querySelectorAll('#scr input').forEach(x=>x.onchange=scr);scr();
+// Run chart
+const RD={good:['完成率高、RCSQ 上升',[52,51,53,52,54,55,56,57,58,58,60,60,61,62],'RCSQ 逐步上升並超過目標。仍需檢視平衡指標（不適、皮膚反應、工作負荷）與病人經驗，再決定調整、擴大或停止。'],flat:['完成率90%、RCSQ 沒改善',[52,53,51,52,54,52,51,53,52,53,52,51,53,52],'先診斷再下結論：①介入忠實度（真的按摩15分鐘？）②對象與量測（病人是否適合？RCSQ填寫時間固定？）③共存因素（疼痛、噪音、夜間處置、藥物）④效果與時間（樣本太少、試行太短，或真實效果有限）。']};let rk='good';
+Object.keys(RD).forEach(k=>{const b=document.createElement('button');b.className='chip';b.textContent=RD[k][0];b.dataset.k=k;b.onclick=()=>{rk=k;run()};$('#rs').appendChild(b)});
+const rx=d=>50+d*40,ry=v=>190-(v-40)*4.25;
+function run(){const d=RD[rk][1];document.querySelectorAll('#rs .chip').forEach(b=>b.setAttribute('aria-pressed',b.dataset.k===rk));
+let g='';for(let v=40;v<=80;v+=10)g+=`<line x1="50" x2="570" y1="${ry(v)}" y2="${ry(v)}" stroke="var(--ln)"/><text x="42" y="${ry(v)+4}" text-anchor="end" font-size="12" fill="var(--mu)">${v}</text>`;
+d.forEach((_,i)=>g+=`<text x="${rx(i)}" y="212" text-anchor="middle" font-size="11" fill="var(--mu)">${i+1}</text>`);
+const col='var(--c5)';
+$('#run').innerHTML=`${g}<line x1="50" x2="570" y1="${ry(52)}" y2="${ry(52)}" stroke="var(--mu)" stroke-dasharray="5 4"/><text x="570" y="${ry(52)+14}" text-anchor="end" font-size="12" fill="var(--mu)">基線 52</text><line x1="50" x2="570" y1="${ry(58)}" y2="${ry(58)}" stroke="var(--c4)" stroke-dasharray="5 4"/><text x="570" y="${ry(58)-5}" text-anchor="end" font-size="12" fill="var(--c4)">目標 58（假設）</text><polyline fill="none" stroke="${col}" stroke-width="3" points="${d.map((v,i)=>rx(i)+','+ry(v)).join(' ')}"/>${d.map((v,i)=>`<circle cx="${rx(i)}" cy="${ry(v)}" r="4" fill="${col}"/>`).join('')}<text x="310" y="228" text-anchor="middle" font-size="12" fill="var(--mu)">試行第幾晚</text>`;
+$('#rsT').textContent=RD[rk][2]+'（教學示例資料）'}
+run();
+// Indicators
+[['結果','每晚 RCSQ、入睡時間、夜間醒來次數<br>資料：病人晨間固定時間自填，與試行前基線比較'],['過程','完成率＝實際完成次數 ÷ 應完成次數<br>資料：按摩紀錄單，每晚由執行者勾選'],['平衡','足部不適、皮膚反應、每次工作分鐘數<br>資料：按摩前後皮膚評估、執行者計時'],['病人經驗','舒適度、接受度、再次使用意願<br>資料：試行結束的簡短問卷，拒絕原因也要記錄']].forEach((x,i)=>E(`<div style="padding:8px 0;border-bottom:1px solid var(--ln)"><b style="color:var(--k)">${x[0]}指標</b><br><span style="font-size:14px;color:var(--mu)">${x[1]}</span></div>`,$('#ind')));
+const P=[['Plan','試行前：量測基線 RCSQ 與工作負荷；寫好指標定義、目標與行動規則；訓練執行者；決定誰記錄、何時檢視。'],['Do','第 1–2 週：內科病房，符合條件且願意的病人睡前 15 分鐘足部按摩；每晚記錄完成度、RCSQ、不適與耗時。'],['Check','第 2 週結束：計算四類指標並與目標比較；用落差診斷找原因；收集病人與護理師回饋。'],['Act','依事先規則：達標且安全→擴大並持續監測；未達標→修正流程再試；有安全問題→暫停檢討；新問題回到 Ask。']];
+P.forEach((p,i)=>E(`<button class="chip" style="margin:0 6px 6px 0" aria-pressed="false" data-i="${i}">${p[0]}</button>`,$('#pdca')));
+document.querySelectorAll('#pdca .chip').forEach(b=>b.onclick=()=>{document.querySelectorAll('#pdca .chip').forEach(x=>x.setAttribute('aria-pressed',x===b));$('#pdcaT').textContent=P[b.dataset.i][1]});
+document.querySelector('#pdca .chip').click();
+// Background vs foreground quiz
+const QZ=[['足部按摩可能透過哪些機轉影響睡眠？',0,'問機轉（為什麼），屬基礎知識，可由教科書或綜述回答。'],['15分鐘足部按摩，相較常規照護，能否改善住院病人的睡眠？',1,'同時有介入、比較與結果，需要研究文獻。'],['RCSQ 是什麼量表？',0,'問「是什麼」，屬基礎知識。'],['對術後病人，睡前使用耳塞相較於不使用，能否減少夜間醒來次數？',1,'有介入（耳塞）、比較（不使用）與結果（醒來次數）。'],['失眠的定義與常見原因為何？',0,'問定義與病因，屬背景問題。']];let qok=0,qd=0;
+QZ.forEach((q,i)=>{E(`<div style="padding:8px 0;border-top:1px solid var(--ln)"><div>${q[0]}</div><div class="chips" style="margin:4px 0"><button class="chip" data-a="0" aria-pressed="false">背景</button><button class="chip" data-a="1" aria-pressed="false">前景</button></div><div class="note" style="margin:0"></div></div>`,$('#qz'));const r=$('#qz').lastElementChild,fb=r.lastElementChild;let done=false;
+r.querySelectorAll('.chip').forEach(b=>b.onclick=()=>{r.querySelectorAll('.chip').forEach(x=>x.setAttribute('aria-pressed',x===b));const ok=+b.dataset.a===q[1];fb.textContent=(ok?'✅ 正確：':'❌ 再想想：')+q[2];if(!done){done=true;qd++;if(ok)qok++}$('#qzS').textContent=`已作答 ${qd}／${QZ.length}，答對 ${qok} 題`})});
+// Shared decision making
+const SD={t:null,f:null};
+[['t','是否願意讓護理師觸碰足部？',['願意','不確定','不願意']],['f','是否希望家屬在場？',['希望','不需要']]].forEach(q=>{E(`<div style="font-weight:700;font-size:14px">${q[1]}</div><div class="chips"></div>`,$('#sdq'));const w=$('#sdq').lastElementChild;q[2].forEach(o=>{const b=document.createElement('button');b.className='chip';b.textContent=o;b.setAttribute('aria-pressed',false);b.onclick=()=>{SD[q[0]]=o;w.querySelectorAll('.chip').forEach(x=>x.setAttribute('aria-pressed',x===b));sd()};w.appendChild(b)})});
+function sd(){const o=$('#sdT'),t=SD.t;let s,c='var(--c4)';
+if(!t){s='請先選擇病人的回應，看護理師如何調整。'}
+else if(t==='願意'){c='var(--c5)';s='確認偏好部位與力道，約定隨時可喊停，並記錄病人已知情並同意。'}
+else if(t==='不確定'){s='不催促：再說明一次效益與不確定性，可先示範短時間體驗，或稍後再問，期間維持其他助眠方式。'}
+else{c='var(--bad)';s='尊重拒絕，不影響其他照護；改提供其他助眠方式（例如減少夜間干擾），並記錄病人的選擇。'}
+if(t&&t!=='不願意'&&SD.f==='希望')s+=' 安排家屬在場，並維持隱私。';
+o.style.borderColor=c;o.textContent=s}
+sd();
+// Appraise: attrition dots
+function dots(id,l){$(id).innerHTML=Array.from({length:100},(_,i)=>`<i class='${i>=100-l?'x':''}'></i>`).join('')}
+function loss(){const a=+$('#lossS').value,d=Math.abs(a-8);$('#lossA').textContent=a;dots('#dA',a);$('#lossT').innerHTML=`兩組流失人數差 <b>${d}</b> 人。`+(d>=10?'差距大，高度警訊：需追問原因與資料處理，不因 p＜0.05 直接採用。':d>=5?'有差距：需確認兩組流失原因是否相近，並看敏感度分析。':'差距小：這項偏差風險較低，但仍要看總流失率與原因。')+' 整體流失超過約 20% 時，通常要更保守解讀（經驗法則，非絕對標準）。'}
+dots('#dC',8);$('#lossS').oninput=loss;loss();
+// Appraise tools
+const TL=[['隨機對照試驗（RCT）',[['Cochrane RoB 2','逐領域判定「低風險／有疑慮／高風險」：隨機過程、偏離預定介入、遺漏結果資料、結果測量、選擇性報告。直接對應隨機、隱匿、盲化與流失。'],['CASP RCT 檢核表','以引導式問題檢視效度、結果與適用性，適合入門與讀書會。'],['JBI RCT 檢核表','逐題回答是／否／不清楚／不適用，常用於護理實證文獻。']],'本案例的足部按摩 RCT：用 RoB 2 或 CASP RCT。'],['系統性回顧',[['AMSTAR 2','評估回顧本身的品質：搜尋是否完整、是否評讀納入研究、是否考慮發表偏差。'],['CASP／JBI 系統性回顧檢核表','檢視問題是否明確、搜尋與篩選、納入研究品質與結果合併。']],'先確認回顧本身可信，再看它納入的研究。'],['世代、病例對照等觀察研究',[['Newcastle-Ottawa Scale','從選樣、組間可比性、結果測量評估。'],['ROBINS-I','評估非隨機介入研究的偏差風險。'],['CASP／JBI 對應版本','依設計選世代或病例對照版本。']],'觀察研究常用來補充安全性與接受度。'],['質性研究',[['CASP 質性研究檢核表','研究目的、方法、收集與分析、研究者角色、結果可信度。'],['JBI 質性檢核表','檢視方法一致性、詮釋與引述是否合理。']],'可用來了解病人對按摩的感受與障礙。'],['橫斷性／描述性研究',[['JBI 分析型橫斷研究檢核表','檢視納入條件、對象與場域描述、暴露與結果測量是否有效可靠、是否處理混淆因素。'],['AXIS','專為橫斷研究設計的評讀工具，涵蓋研究設計、樣本、測量、分析與結果討論。']],'橫斷研究只能描述某時間點的關聯，不能推論因果。'],['臨床指引',[['AGREE II','從範圍與目的、利害關係人參與、嚴謹度、清晰性、應用性、編輯獨立性六個領域評估指引品質。']],'採用指引前，先看它的製作是否嚴謹。']];
+TL.forEach((t,i)=>{const b=document.createElement('button');b.className='chip';b.textContent=t[0];b.onclick=()=>{document.querySelectorAll('#tl .chip').forEach(x=>x.setAttribute('aria-pressed',x===b));$('#tlT').innerHTML=t[1].map(x=>`<div style='margin-bottom:6px'><b>${x[0]}</b>：${x[1]}</div>`).join('')+`<div class='note'>${t[2]}</div>`};$('#tl').appendChild(b);if(!i)b.click()});
+// Appraise levels
+const LV={'Oxford CEBM（2011）':['系統性回顧（納入 RCT）','RCT，或效果非常大的觀察性研究','非隨機的對照世代／追蹤研究','病例系列、病例對照、歷史對照研究','機轉推論（專家意見／基礎研究）'],'JBI（有效性）':['實驗性設計：RCT、系統性回顧（納入 RCT）','類實驗（準實驗）設計','觀察性—分析性：世代、病例對照','觀察性—描述性：病例系列、個案報告','專家意見與基礎研究']};
+Object.keys(LV).forEach((k,i)=>{const b=document.createElement('button');b.className='chip';b.textContent=k;b.onclick=()=>{document.querySelectorAll('#lvS .chip').forEach(x=>x.setAttribute('aria-pressed',x===b));$('#lvL').innerHTML=LV[k].map((t,j)=>`<div style='display:flex;gap:10px;padding:6px 0;border-top:1px solid var(--ln);opacity:${1-j*.12}'><b style='flex:none;width:64px;color:var(--c3)'>Level ${j+1}</b><span>${t}</span></div>`).join('')};$('#lvS').appendChild(b);if(!i)b.click()});
+// Appraise GRADE
+let gst=4;const GD=['偏差風險嚴重（例：無法盲化且結果為自填）','結果不一致（各研究方向或大小差很多）','間接性（族群、介入或結果與問題不完全相同）','不精確（樣本小、95% CI 很寬）','發表偏差（可能漏掉陰性結果）'],GU=['效果量很大','有劑量反應關係','可能的混淆因素只會低估效果'],GL=['極低','低','中','高'],GX=['幾乎沒有把握，真實效果很可能與估計不同。','把握有限，真實效果可能與估計明顯不同。','中度把握，真實效果可能接近估計，但仍可能不同。','很有把握，真實效果接近估計。'];
+[['RCT（起點：高）',4],['觀察性研究（起點：低）',2]].forEach(s=>{const b=document.createElement('button');b.className='chip';b.textContent=s[0];b.dataset.v=s[1];b.onclick=()=>{gst=s[1];grade()};$('#gS').appendChild(b)});
+GD.forEach((t,i)=>E(`<label class='chk'><input type='checkbox' data-d='${i}'>${t}</label>`,$('#gD')));GU.forEach((t,i)=>E(`<label class='chk'><input type='checkbox' data-u='${i}'>${t}</label>`,$('#gU')));
+function grade(){document.querySelectorAll('#gS .chip').forEach(b=>b.setAttribute('aria-pressed',+b.dataset.v===gst));const dn=document.querySelectorAll('#gD input:checked').length,can=gst===2&&dn===0;document.querySelectorAll('#gU input').forEach(x=>{x.disabled=!can;if(!can)x.checked=false});const up=document.querySelectorAll('#gU input:checked').length,l=Math.max(1,Math.min(4,gst-dn+up));$('#gM').innerHTML=GL.map((n,i)=>`<div style='flex:1;text-align:center;padding:6px 0;border-radius:4px;font-size:13px;font-weight:700;background:${i<l?'var(--c3)':'var(--ln)'};color:${i<l?'#fff':'var(--mu)'}'>${n}</div>`).join('');$('#gT').innerHTML=`確信度：<b>${GL[l-1]}</b>。${GX[l-1]}`}
+document.querySelectorAll('#gD input,#gU input').forEach(x=>x.onchange=grade);
+$('#gCase').onclick=()=>{gst=4;document.querySelectorAll('#gD input,#gU input').forEach(x=>x.checked=x.dataset.d==='0'||x.dataset.d==='3');grade()};grade();
+// Assess dashboard
+const DI=[['n','接受按摩人數',16],['plan','應完成按摩次數（人數×3晚）',48],['done','實際完成次數',43],['adv','新發足部不適或皮膚反應人數',0],['sev','嚴重不良事件（件）',0],['min','平均每次準備＋執行＋紀錄（分鐘）',22],['b','基線 RCSQ 平均（分）',52],['a','試行後 RCSQ 平均（分）',61],['tc','目標：完成率 ≥（%）',80],['ta','目標：不良反應率 ≤（%）',5],['td','目標：RCSQ 改變量 ≥（分）',8],['tm','目標：每次耗時 ≤（分鐘）',25]];
+DI.forEach(d=>E(`<label class='f'>${d[1]}<input type='number' id='d_${d[0]}' value='${d[2]}' min='0'></label>`,$('#dbIn')));
+function db(){const v={};DI.forEach(d=>v[d[0]]=+$('#d_'+d[0]).value||0);const comp=v.plan?v.done/v.plan*100:0,adr=v.n?v.adv/v.n*100:0,dl=v.a-v.b,okC=comp>=v.tc,okA=adr<=v.ta&&v.sev===0,okD=dl>=v.td,okM=v.min<=v.tm;
+const R2=[['結果','RCSQ 改變量＝後−基線',dl.toFixed(1)+' 分',okD],['過程','完成率＝完成次數÷應完成次數',comp.toFixed(1)+'%',okC],['平衡','不良反應率＝不適人數÷接受人數',adr.toFixed(1)+'%（嚴重事件 '+v.sev+' 件）',okA],['平衡','工作負荷＝每次分鐘數',v.min+' 分鐘',okM]];
+$('#dbOut').innerHTML=R2.map(r=>`<div style='display:flex;gap:10px;padding:6px 0;border-top:1px solid var(--ln);font-size:14px'><span>${r[3]?'✅':'⚠️'}</span><span style='flex:1'><b>${r[0]}指標</b> ${r[1]}</span><b>${r[2]}</b></div>`).join('');
+let s,c='var(--c4)';
+if(v.sev>0){c='var(--bad)';s='暫停：先檢討嚴重事件，確認適應症與流程，再決定是否重啟。'}
+else if(!okA){c='var(--bad)';s='修正安全流程：重新檢視適用對象、皮膚評估與手法，再繼續試行。'}
+else if(!okC)s='先改善執行：完成率不足時，無法判斷按摩是否有效。找出未完成的原因（人力、時段、病人拒絕）。';
+else if(!okD)s='做落差診斷：完成率達標但 RCSQ 未達目標，檢查介入忠實度、對象與量測、共存因素、樣本與時間（見上方走勢圖）。';
+else if(!okM)s='效果與安全達標，但工作負荷偏高：調整時段、對象或人力後再擴大。';
+else{c='var(--c5)';s='達標且安全：可擴大到下一個病房，持續監測四類指標，並規劃下一輪 PDCA。'}
+$('#dbAct').style.borderColor=c;$('#dbAct').innerHTML='<b>建議行動</b>：'+s}
+document.querySelectorAll('#dbIn input').forEach(x=>x.oninput=db);db();
+// Ask: quantitative vs qualitative
+const FM={'量性 PICO':[['P','族群／問題','睡眠品質不佳的住院成人'],['I','介入','睡前15分鐘足部按摩'],['C','比較（可省略）','常規照護'],['O','成果指標','RCSQ 睡眠品質分數']],'量性 PEO':[['P','族群／問題','住院成人'],['E','暴露','夜間頻繁的護理處置'],['O','結果','睡眠中斷次數']],'質性 PICo':[['P','族群','住院成人病人'],['I','有興趣的現象','接受睡前足部按摩的經驗與感受'],['Co','情境','內科病房']]},FN={'量性 PICO':'問介入有沒有效。比較措施不一定要有；沒有明確對照時可省略 C。','量性 PEO':'問暴露與結果的關聯（例如病因、危險因子），沒有介入與比較。','質性 PICo':'問經驗與意義，不問效果大小。關鍵字要用質性問題的詞彙擬定，不要和量性問題混用。'};
+Object.keys(FM).forEach((k,i)=>{const b=document.createElement('button');b.className='chip';b.textContent=k;b.onclick=()=>{document.querySelectorAll('#fm .chip').forEach(x=>x.setAttribute('aria-pressed',x===b));$('#fmL').innerHTML=FM[k].map(r=>`<div style='display:flex;gap:10px;padding:6px 0;border-top:1px solid var(--ln)'><b style='flex:none;width:28px;color:var(--c1)'>${r[0]}</b><span style='flex:none;width:110px;color:var(--mu);font-size:14px'>${r[1]}</span><span>${r[2]}</span></div>`).join('');$('#fmT').textContent=FN[k]};$('#fm').appendChild(b);if(!i)b.click()});
+// Acquire: flowchart
+const FI=[['pm','PubMed 篇數',36],['ci','CINAHL 篇數',28],['co','Cochrane 篇數',6],['dup','重複篇數',18],['e1','標題摘要排除',41],['e2','全文排除',6]];
+FI.forEach(d=>E(`<label class='f'>${d[1]}<input type='number' id='f_${d[0]}' value='${d[2]}' min='0'></label>`,$('#fcIn')));
+function fc(){const v={};FI.forEach(d=>v[d[0]]=+$('#f_'+d[0]).value||0);const tot=v.pm+v.ci+v.co,a=tot-v.dup,b=a-v.e1,c=b-v.e2;const bx=(t,n)=>`<div style='border-left:5px solid var(--c2);background:var(--bg);padding:8px 12px;border-radius:4px'>${t}<b style='float:right'>${n} 篇</b></div>`,ar=t=>`<div style='padding:4px 0 4px 14px;color:var(--mu);font-size:14px'>↓ ${t}</div>`;
+$('#fcOut').innerHTML=bx(`資料庫搜尋（PubMed ${v.pm}／CINAHL ${v.ci}／Cochrane ${v.co}）`,tot)+ar(`去除重複 −${v.dup}`)+bx('篩選標題與摘要',a)+ar(`排除 −${v.e1}（記錄原因：對象、介入、結果不符等）`)+bx('全文評估',b)+ar(`排除 −${v.e2}（逐篇記錄原因）`)+bx('納入評讀',c)+(Math.min(a,b,c)<0?`<div class='note' style='color:var(--bad)'>數字不合理：排除篇數超過可用篇數，請檢查。</div>`:'')}
+document.querySelectorAll('#fcIn input').forEach(x=>x.oninput=fc);fc();
+// Practice: report
+const RP=[['題目',0,'由臨床情境形成一個問題，以 PICO 呈現。例：在睡眠品質不佳的住院成人中，睡前足部按摩相較常規照護，能否提高 RCSQ 分數？'],['臨床問題描述與重要性',0,'說明單位常見的臨床情境、發生頻率或影響，以及為什麼值得查證（病人結果、安全、人力）。'],['文獻查證過程',1,'列出關鍵字（含同義詞）、使用的資料庫與搜尋路徑，附完整搜尋式與搜尋日期。'],['搜尋結果',1,'以流程圖呈現各階段篇數與排除原因，說明最後納入哪些文獻。'],['文獻評讀結果',2,'說明證據等級、使用的評讀工具、偏差風險、效果量與 95% CI，以及適用性。'],['結論',2,'回答 PICO 問題；整合評讀與統整結果，說明證據的強度與限制，並提出可供單位參考的建議。是否導入與成效評估，屬後續的 Apply 與 Assess。']];
+RP.forEach(r=>{const b=document.createElement('button');b.className='chip';b.style.cssText=`margin:0 6px 6px 0;border-left:4px solid var(${S[r[1]].v})`;b.textContent=r[0];b.onclick=()=>{document.querySelectorAll('#rp .chip').forEach(x=>x.setAttribute('aria-pressed',x===b));$('#rpT').innerHTML=`<b>${r[0]}</b>（對應 ${S[r[1]].k}）<br>${r[2]}`};$('#rp').appendChild(b)});document.querySelector('#rp .chip').click();
+$('#wf').innerHTML=`<ol style='margin:0;padding-left:22px'>${['準備至少一個臨床情境，推選小組長','討論單位常見的臨床情境，形成問題並選定 PICO 主題（量性或質性皆可）','搜尋文獻並製作流程圖','依關鍵文獻完成文章評讀','完成文獻統整','討論並進行成果報告與提問'].map(t=>`<li style='margin-bottom:8px'>${t}</li>`).join('')}</ol>`;
+const CK=[['訂定問題：能從臨床情境訂出量性與質性問題各一，並舉出 P、I、C、O 或 P、E、O／P、I、Co',10,0,'訂定問題'],['關鍵詞：依問題類型列出至少 3 個關鍵詞',6,0,'建立關鍵詞'],['登入圖書館電子資源查詢系統',2,1,'登入電子資源'],['中文資料庫：關鍵字查詢、合併搜尋、條件限制、判別並下載全文',12,1,'中文資料庫搜尋'],['英文資料庫：Cochrane Library 加另一個英文資料庫，含進階搜尋、條件限制、取得全文',28,1,'英文資料庫搜尋'],['證據等級：能從摘要辨別文獻等級（JBI、Oxford 等）',6,2,'辨別證據等級'],['評讀：以 CASP 等工具評讀一篇 RCT 並報告',30,2,'評讀 RCT'],['參考文獻：以最新版 APA 格式書寫中英文各一篇',6,3,'APA 參考文獻']],CAT=['Ask','Acquire','Appraise','文獻格式'],CC=['--c1','--c2','--c3','--c4'];
+CK.forEach((c,i)=>E(`<label class='chk'><input type='checkbox' data-i='${i}'><span style='flex:1'>${c[0]}</span><b style='color:var(${CC[c[2]]})'>${c[1]} 分</b></label>`,$('#cl')));
+function ckf(){let s=0,best=null;CK.forEach((c,i)=>{if(document.querySelector(`#cl input[data-i='${i}']`).checked)s+=c[1];else if(!best||c[1]>best[1])best=c});$('#clT').style.borderColor=s>=90?'var(--c5)':'var(--c4)';$('#clT').innerHTML=`目前 <b>${s}</b>／100 分<div style='height:10px;border-radius:5px;background:var(--ln);margin:8px 0'><div style='height:10px;border-radius:5px;width:${s}%;background:var(--c5)'></div></div>`+(s>=90?'已達常見的通過門檻（90 分）。':`距離常見門檻 90 分還差 ${90-s} 分；可優先補強「${best[3]}」（${best[1]} 分）。`)}
+document.querySelectorAll('#cl input').forEach(x=>x.onchange=ckf);ckf();
+const tot=CAT.map((_,j)=>CK.filter(c=>c[2]===j).reduce((a,c)=>a+c[1],0));
+$('#wt').innerHTML=`<div style='display:flex;height:34px;border-radius:6px;overflow:hidden'>${tot.map((t,j)=>`<div style='width:${t}%;background:var(${CC[j]});color:#fff;font-size:13px;font-weight:700;line-height:34px;text-align:center;overflow:hidden;white-space:nowrap'>${t}</div>`).join('')}</div><div style='display:flex;gap:14px;flex-wrap:wrap;font-size:13px;margin-top:6px'>${CAT.map((n,j)=>`<span><b style='color:var(${CC[j]})'>■</b> ${n}</span>`).join('')}</div>`;
+// OR forest plot
+const OI=[['oa','按摩組：睡眠改善人數',21],['on1','按摩組：總人數',30],['oc','對照組：睡眠改善人數',12],['on2','對照組：總人數',30]];
+OI.forEach(d=>E(`<label class='f'>${d[1]}<input type='number' id='${d[0]}' value='${d[2]}' min='0'></label>`,$('#orIn')));
+function orf(){const A=+$('#oa').value||0,n1=+$('#on1').value||0,C=+$('#oc').value||0,n2=+$('#on2').value||0;
+if(A>n1||C>n2||n1<1||n2<1){$('#orT').textContent='人數不合理：改善人數不能超過總人數。';return}
+let a=A,b=n1-A,c=C,d=n2-C;const fix=a*b*c*d===0;if(fix){a+=.5;b+=.5;c+=.5;d+=.5}
+const or=a*d/(b*c),se=Math.sqrt(1/a+1/b+1/c+1/d),lo=Math.exp(Math.log(or)-1.96*se),hi=Math.exp(Math.log(or)+1.96*se),p1=A/n1,p2=C/n2,rd=p1-p2,rr=p2?p1/p2:NaN;
+const X=v=>40+(Math.log10(Math.min(31.6,Math.max(.1,v)))+1)/2.5*520;let g='';
+[.1,.2,.5,1,2,5,10,20].forEach(v=>g+=`<line x1='${X(v)}' x2='${X(v)}' y1='85' y2='91' stroke='var(--mu)'/><text x='${X(v)}' y='108' text-anchor='middle' font-size='12' fill='var(--mu)'>${v}</text>`);
+$('#orF').innerHTML=`<line x1='40' x2='560' y1='85' y2='85' stroke='var(--mu)'/>${g}<line x1='${X(1)}' x2='${X(1)}' y1='15' y2='85' stroke='var(--ink)' stroke-width='2'/><text x='${X(1)}' y='12' text-anchor='middle' font-size='12' fill='var(--ink)'>1＝無差異</text><line x1='${X(lo)}' x2='${X(hi)}' y1='55' y2='55' stroke='var(--c3)' stroke-width='5' stroke-linecap='round'/><rect x='${X(or)-8}' y='47' width='16' height='16' fill='var(--c3)'/><text x='${X(or)}' y='40' text-anchor='middle' font-size='13' font-weight='700' fill='var(--ink)'>OR ${or.toFixed(1)}（${lo.toFixed(1)} 至 ${hi.toFixed(1)}）</text><text x='${X(.4)}' y='128' text-anchor='middle' font-size='12' fill='var(--mu)'>← 偏向對照組</text><text x='${X(5)}' y='128' text-anchor='middle' font-size='12' fill='var(--mu)'>偏向按摩組 →</text>`;
+const sig=lo>1?'95% CI 整段大於 1：按摩組睡眠改善的勝算較高。':hi<1?'95% CI 整段小於 1：按摩組睡眠改善的勝算較低。':'95% CI 跨越 1：不能排除兩組沒有差異。';
+$('#orT').style.borderColor=lo>1?'var(--c5)':hi<1?'var(--bad)':'var(--c4)';
+$('#orT').innerHTML=`<b>① 算法</b>：OR＝(${A}÷${n1-A})÷(${C}÷${n2-C})，約 ${or.toFixed(2)}${fix?'（有 0 格，已各加 0.5 校正）':''}。<br><b>② 白話</b>：按摩組「改善 ÷ 沒改善」的比值，是對照組的 ${or.toFixed(1)} 倍。<br><b>③ 精確度</b>：95% CI ${lo.toFixed(1)} 至 ${hi.toFixed(1)}。${sig}<br><b>④ 回到實際比例</b>：改善比例 ${(p1*100).toFixed(0)}% 對 ${(p2*100).toFixed(0)}%（風險比 RR ${isNaN(rr)?'無法計算':rr.toFixed(2)}），絕對差 ${(rd*100).toFixed(0)} 個百分點${rd>0?`，NNT 約 ${(1/rd).toFixed(1)}（慣例進位為 ${Math.ceil(1/rd-1e-9)}）：約每 ${Math.ceil(1/rd-1e-9)} 位病人接受按摩，會多 1 位改善（詳見下方 NNT／NNH）`:''}。<br><span style='color:var(--mu);font-size:14px'>提醒：結果越常見，OR 越會比 RR 大，容易讓人覺得效果更誇張，所以一定要同時看實際比例。</span>`}
+document.querySelectorAll('#orIn input').forEach(x=>x.oninput=orf);orf();
+// NNT / NNH
+const NI=[['nbc','對照組：睡眠改善比例（%）',40],['nbt','按摩組：睡眠改善比例（%）',70],['nhc','對照組：足部不適比例（%）',2],['nht','按摩組：足部不適比例（%）',5]];
+NI.forEach(d=>E(`<label class='f'>${d[1]}<input type='number' id='${d[0]}' value='${d[2]}' min='0' max='100'></label>`,$('#nnIn')));
+function nn(){const g=id=>Math.min(100,Math.max(0,+$('#'+id).value||0))/100,arr=g('nbt')-g('nbc'),ari=g('nht')-g('nhc');
+const T=arr>0?`<b>NNT＝1÷${(arr*100).toFixed(0)}%＝${(1/arr).toFixed(1)}</b>，進位為 <b>${Math.ceil(1/arr-1e-9)}</b>：約每 ${Math.ceil(1/arr-1e-9)} 位病人接受按摩，多 1 位睡眠改善。`:arr<0?'按摩組改善比例反而較低，NNT 沒有意義，應重新檢視研究方向。':'兩組改善比例相同，NNT 無法計算（視為無限大）。';
+const H=ari>0?`<b>NNH＝1÷${(ari*100).toFixed(0)}%＝${(1/ari).toFixed(1)}</b>，捨去為 <b>${Math.floor(1/ari+1e-9)}</b>：約每 ${Math.floor(1/ari+1e-9)} 位病人接受按摩，多 1 位出現足部不適。`:'按摩組沒有多出不適，NNH 無法計算（沒有額外傷害）。';
+const L2=arr>0&&ari>0?`<b>LHH＝NNH÷NNT＝${(arr/ari).toFixed(1)}</b>：得到好處的機會約為受到傷害的 ${(arr/ari).toFixed(1)} 倍。`:'';
+$('#nnT').innerHTML=`<div style='font-size:13px'>每 100 位病人，按摩相較對照多改善</div><div class='bar' style='width:${Math.max(arr*100,0)}%;min-width:70px;background:var(--c5)'>${(arr*100).toFixed(0)} 位</div><div style='font-size:13px'>每 100 位病人，按摩相較對照多不適</div><div class='bar' style='width:${Math.max(ari*100,0)}%;min-width:70px;background:var(--bad)'>${(ari*100).toFixed(0)} 位</div>${T}<br>${H}<br>${L2}`}
+document.querySelectorAll('#nnIn input').forEach(x=>x.oninput=nn);nn();
+// Core GRADE: certainty to recommendation
+let cgc=1,cgb=0;
+['極低','低','中','高'].forEach((n,i)=>{const b=document.createElement('button');b.className='chip';b.textContent=n;b.dataset.i=i;b.onclick=()=>{cgc=i;cg()};$('#cgC').appendChild(b)});
+['利明顯大於弊 / Benefits clearly outweigh harms','利弊不明確 / Balance unclear'].forEach((n,i)=>{const b=document.createElement('button');b.className='chip';b.textContent=n;b.dataset.i=i;b.onclick=()=>{cgb=i;cg()};$('#cgB').appendChild(b)});
+function cg(){document.querySelectorAll('#cgC .chip').forEach(b=>b.setAttribute('aria-pressed',+b.dataset.i===cgc));document.querySelectorAll('#cgB .chip').forEach(b=>b.setAttribute('aria-pressed',+b.dataset.i===cgb));let s,c;
+if(cgb===1){c='var(--c4)';s='<b>有條件（弱）建議</b>：利弊不明確時，不論確信度高低，建議多半是有條件的，重點是說明利弊並尊重病人偏好。'}
+else if(cgc>=2){c='var(--c5)';s=`<b>強建議</b>：利明顯大於弊，且確信度為${['','','中','高'][cgc]}，一般可建議多數病人採用。`}
+else{c='var(--c4)';s=`<b>有條件（弱）建議</b>：利雖然明顯，但確信度為${['極低','低'][cgc]}。Core GRADE 在確信度低時，除特殊情況外多給有條件建議。實務上：說明不確定性、讓病人選擇，並小規模試行與監測。`}
+$('#cgT').style.borderColor=c;$('#cgT').innerHTML=s}
+$('#cgCase').onclick=()=>{cgc=1;cgb=0;cg()};cg();
+(()=>{
+E(`<a href='#s7' style='--k:var(--c3)'>統計速查</a><a href='#s6' style='--k:var(--c1)'>實作報告</a><a href='#s8' style='--k:var(--c5)'>能力自我檢核</a>`,$('#nav'));
+const CH=(id,arr,fn,def=0)=>{const w=$(id);arr.forEach((n,i)=>{const b=document.createElement('button');b.className='chip';b.textContent=n;b.onclick=()=>{w.querySelectorAll('.chip').forEach(x=>x.setAttribute('aria-pressed',x===b));fn(i)};w.appendChild(b);if(i===def)b.click()})};
+const kv=a=>a.map(r=>`<div style='margin-bottom:4px'><b>${r[0]}</b>：${r[1]}</div>`).join('');
+const f1=x=>isFinite(x)?x.toFixed(1):'—',f2=x=>isFinite(x)?x.toFixed(2):'—',pc=x=>isFinite(x)?(x*100).toFixed(0)+'%':'—';
+// 1 design
+const DZ=[['治療／介入','PICO（Population, Intervention, Comparison, Outcome）','隨機對照試驗（RCT）、系統性回顧（Systematic review）','準實驗、世代研究','CONSORT（RCT）、PRISMA（系統性回顧）'],['病因／危險因子','PECO／PEO（Exposure 暴露）','世代研究（Cohort）、病例對照（Case-control）','橫斷研究','STROBE'],['預後','PICOT（加入時間 Time）','世代研究（Cohort）','追蹤型研究','STROBE'],['診斷','PIRD（Index test, Reference standard, Diagnosis）','診斷準確度研究（Diagnostic accuracy study）','系統性回顧','STARD'],['經驗／意義','PICo（Phenomenon of Interest, Context）','質性研究（Qualitative study）','混合方法研究','COREQ、SRQR'],['盛行率／現況','PO／PEO','橫斷研究（Cross-sectional study）','描述性研究','STROBE']];
+CH('#dz',DZ.map(d=>d[0]),i=>{const d=DZ[i];$('#dzT').innerHTML=kv([['問題架構',d[1]],['最適設計',d[2]],['次選',d[3]],['報告指引',d[4]]])+`<span style='font-size:14px;color:var(--mu)'>報告指引（Reporting guideline）規範作者「怎麼寫」，讓讀者能評讀；評讀工具則是讀者「怎麼評」，兩者常互相對應。品質改善研究可參考 SQUIRE。設計沒有絕對的高低，問題類型決定最適合的設計。</span>`});
+// 2 confounding
+const CF=[[20,50,'自選分組：疼痛劇烈的人較不願意接受按摩，而疼痛本身又會影響睡眠，所以<b>疼痛是干擾因子</b>。即使按摩組睡得較好，也可能只是因為疼痛較少，不能說是按摩的效果。'],[35,35,'隨機分派：兩組疼痛分布相近，連沒測量到的因素也大致平衡，所以組間差異較能歸因於介入。']];
+CH('#cf',['自選分組（觀察研究）','隨機分派（RCT）'],i=>{const c=CF[i];$('#cfB').innerHTML=`<div style='font-size:13px'>按摩組：疼痛劇烈者比例</div><div class='bar' style='width:${c[0]}%;min-width:60px;background:var(--c3)'>${c[0]}%</div><div style='font-size:13px'>對照組：疼痛劇烈者比例</div><div class='bar' style='width:${c[1]}%;min-width:60px;background:var(--c4)'>${c[1]}%</div>`;$('#cfT').innerHTML=c[2]+`<br><span style='font-size:14px;color:var(--mu)'>干擾因子：同時與介入和結果有關，且不在兩者因果路徑上的因素。處理：設計階段用隨機分派、限制、配對；分析階段用分層或多變量調整（只能調整有測量的因素）。</span>`});
+// 3 ITT
+CH('#itC',['意向治療分析（ITT）','依計畫書分析（Per-protocol）'],i=>{$('#itD').innerHTML=Array.from({length:100},(_,j)=>`<i class='${i&&j>=80?'x':''}' style='${!i&&j>=80?'opacity:.4':''}'></i>`).join('');$('#itT').innerHTML=(i?'<b>分析 80 人，平均差 +10</b>（教學示例）。只留下完成介入者，隨機化帶來的可比性被破壞（完成者可能本來就較健康、較配合），常高估效果。':'<b>分析 100 人，平均差 +6</b>（教學示例）。依「原本分派的組別」分析，不論後來有沒有完成，保留隨機化的可比性；較保守，也較貼近真實臨床。')+`<br><span style='font-size:14px;color:var(--mu)'>圖：按摩組 100 人，其中 20 人未完成（淡色或空心）。追蹤（Follow-up）要夠久且兩組一致，失聯者要盡量取得結果。</span>`});
+// 4 RR OR HR
+const HR=[['風險比 RR（Risk ratio）','兩組「事件發生比例」的比值。例：改善 70% 對 40%，RR＝1.75。','常用於 RCT、世代研究；1＝無差異。'],['勝算比 OR（Odds ratio）','兩組「勝算（發生÷未發生）」的比值。例：OR＝3.5。','常用於病例對照、邏輯迴歸與統合分析；事件越常見，OR 越會比 RR 大；1＝無差異。'],['危害比 HR（Hazard ratio）','兩組「單位時間內發生事件的瞬間風險」的比值，同時考慮事件「何時」發生，並處理追蹤結束仍未發生事件的人（設限，censoring）。例：住院期間首次發生譫妄的 HR＝0.6，表示任一時間點按摩組的瞬間風險約為對照組的 0.6 倍。','用於存活／time-to-event 分析（Kaplan–Meier 曲線、Cox 迴歸）；1＝無差異。']];
+CH('#hrC',HR.map(h=>h[0]),i=>{$('#hrT').innerHTML=`${HR[i][1]}<br><span style='font-size:14px;color:var(--mu)'>${HR[i][2]}</span>`});
+{const X=d=>40+d*25,Y=p=>170-(p-50)*3,st=(a,c)=>{let d=`M${X(a[0][0])} ${Y(a[0][1])}`;a.slice(1).forEach(p=>d+=`H${X(p[0])}V${Y(p[1])}`);return `<path d='${d}' fill='none' stroke='var(${c})' stroke-width='3'/>`};
+$('#km').innerHTML=`<line x1='40' x2='40' y1='20' y2='170' stroke='var(--mu)'/><line x1='40' x2='390' y1='170' y2='170' stroke='var(--mu)'/>${[50,75,100].map(p=>`<text x='34' y='${Y(p)+4}' text-anchor='end' font-size='12' fill='var(--mu)'>${p}</text>`).join('')}${[0,7,14].map(d=>`<text x='${X(d)}' y='188' text-anchor='middle' font-size='12' fill='var(--mu)'>${d}</text>`).join('')}${st([[0,100],[2,92],[4,85],[6,78],[8,70],[10,66],[12,60],[14,60]],'--c4')}${st([[0,100],[2,96],[4,93],[6,89],[8,86],[10,83],[12,80],[14,80]],'--c3')}<text x='200' y='203' text-anchor='middle' font-size='12' fill='var(--mu)'>住院天數</text><text x='4' y='12' font-size='12' fill='var(--mu)'>未發生譫妄的比例（%）</text><text x='230' y='60' font-size='12' fill='var(--c3)'>按摩組</text><text x='230' y='140' font-size='12' fill='var(--c4)'>對照組</text>`}
+// 5 P value
+const PV=[['p＝0.04，平均差 +1 分','95% CI 0.1 至 1.9 分','統計上有差異，但差距遠小於病人有感的門檻，臨床上不重要。'],['p＝0.20，平均差 +10 分','95% CI −5 至 +25 分','p 大於 0.05 不等於無效：樣本小、CI 很寬，只是證據不足，不能下「沒效」的結論。'],['p＝0.001，平均差 +12 分','95% CI 5 至 19 分','不太可能只是機遇，但仍要看 CI 與重要門檻，並確認偏差風險。']];
+CH('#pvC',PV.map(p=>p[0]),i=>{$('#pvT').innerHTML=`<b>${PV[i][1]}</b><br>${PV[i][2]}`});
+// 6 diagnostic
+const DX=[['tp','真陽性 TP（有病且陽性）',40],['fp','偽陽性 FP（沒病但陽性）',15],['fn','偽陰性 FN（有病但陰性）',10],['tn','真陰性 TN（沒病且陰性）',85]];
+DX.forEach(d=>E(`<label class='f'>${d[1]}<input type='number' id='x_${d[0]}' value='${d[2]}' min='0'></label>`,$('#dxIn')));
+function dx(){const g=k=>+$('#x_'+k).value||0,tp=g('tp'),fp=g('fp'),fn=g('fn'),tn=g('tn'),sn=tp/(tp+fn),sp=tn/(tn+fp),lp=sn/(1-sp),ln=(1-sn)/sp,pv=tp/(tp+fp),nv=tn/(tn+fn),pre=+$('#pre').value/100;$('#prv').textContent=Math.round(pre*100);const po=l=>{const o=pre/(1-pre)*l;return isFinite(o)?o/(1+o):NaN};
+$('#dxT').innerHTML=kv([['敏感度 Sensitivity',`TP÷(TP+FN)＝${pc(sn)}（有病的人中，檢查陽性的比例）`],['特異度 Specificity',`TN÷(TN+FP)＝${pc(sp)}（沒病的人中，檢查陰性的比例）`],['陽性概似比 LR+',`${f2(lp)}（敏感度÷(1−特異度)）`],['陰性概似比 LR−',`${f2(ln)}（(1−敏感度)÷特異度，越小越能排除）`],['PPV／NPV',`${pc(pv)}／${pc(nv)}（會隨盛行率改變）`]]);$('#dxP').innerHTML=`檢查前機率 ${Math.round(pre*100)}%：檢查陽性後約 <b>${pc(po(lp))}</b>；陰性後約 <b>${pc(po(ln))}</b>。`}
+document.querySelectorAll('#dxIn input,#pre').forEach(x=>x.oninput=dx);dx();
+// 7 meta-analysis
+const MS=[[['研究 A',10,3],['研究 B',12,4],['研究 C',9,3.5],['研究 D',13,5],['研究 E',11,2.5]],[['研究 A',2,3],['研究 B',18,4],['研究 C',8,3.5],['研究 D',25,5],['研究 E',-3,2.5]]];let msc=0,mmd=0;
+function meta(){const d=MS[msc],k=d.length,w=d.map(s=>1/(s[2]*s[2])),sw=w.reduce((a,b)=>a+b,0),pf=d.reduce((a,s,i)=>a+w[i]*s[1],0)/sw,Q=d.reduce((a,s,i)=>a+w[i]*(s[1]-pf)**2,0),df=k-1,I2=Q>0?Math.max(0,(Q-df)/Q)*100:0,sw2=w.reduce((a,b)=>a+b*b,0),t2=Math.max(0,(Q-df)/(sw-sw2/sw)),wr=d.map(s=>1/(s[2]*s[2]+t2)),swr=wr.reduce((a,b)=>a+b,0),pr=d.reduce((a,s,i)=>a+wr[i]*s[1],0)/swr,W=mmd?wr:w,SW=mmd?swr:sw,P=mmd?pr:pf,se=Math.sqrt(1/SW),lo=P-1.96*se,hi=P+1.96*se,cl=v=>Math.max(-20,Math.min(40,v)),X=v=>40+(cl(v)+20)*8.6,yP=30+k*28+14,ax=yP+26;
+let g=`<line x1='${X(0)}' x2='${X(0)}' y1='14' y2='${ax}' stroke='var(--ink)' stroke-width='2'/><line x1='40' x2='556' y1='${ax}' y2='${ax}' stroke='var(--mu)'/>`;for(let v=-20;v<=40;v+=10)g+=`<text x='${X(v)}' y='${ax+16}' text-anchor='middle' font-size='12' fill='var(--mu)'>${v}</text>`;
+d.forEach((s,i)=>{const y=30+i*28,z=6+W[i]/SW*34;g+=`<text x='4' y='${y+4}' font-size='12' fill='var(--ink)'>${s[0]}</text><line x1='${X(s[1]-1.96*s[2])}' x2='${X(s[1]+1.96*s[2])}' y1='${y}' y2='${y}' stroke='var(--c3)' stroke-width='3'/><rect x='${X(s[1])-z/2}' y='${y-z/2}' width='${z}' height='${z}' fill='var(--c3)'/><text x='598' y='${y+4}' text-anchor='end' font-size='11' fill='var(--mu)'>${(W[i]/SW*100).toFixed(0)}%</text>`});
+g+=`<polygon points='${X(lo)},${yP} ${X(P)},${yP-9} ${X(hi)},${yP} ${X(P)},${yP+9}' fill='var(--c1)'/><text x='4' y='${yP+4}' font-size='12' font-weight='700' fill='var(--ink)'>合併</text><text x='598' y='${yP+4}' text-anchor='end' font-size='11' fill='var(--mu)'>權重</text>`;$('#mf').innerHTML=g;
+$('#mT').innerHTML=`<b>${mmd?'隨機效應':'固定效應'}</b>：合併平均差 ${f1(P)}（95% CI ${f1(lo)} 至 ${f1(hi)}）<br>Q＝${f1(Q)}（df ${df}），<b>I²＝${I2.toFixed(0)}%</b>（${I2<25?'低':I2<50?'中度':I2<75?'偏高':'很高'}異質性），τ²＝${f1(t2)}<br><span style='font-size:14px;color:var(--mu)'>${mmd?'隨機效應下權重較平均，小型研究的影響變大，CI 較寬。':'固定效應下，標準誤小（較精確）的研究權重大，例如研究 E。'}${I2>=50?'異質性高：先找出研究間為何不一致，再決定能否合併。':'研究結果相近，合併的意義較大。'}</span>`}
+CH('#msC',['研究結果一致','研究結果不一致'],i=>{msc=i;meta()});CH('#mdC',['固定效應（Fixed-effect）','隨機效應（Random-effects）'],i=>{mmd=i;meta()});
+// 8 funnel
+const FS=[[[1.5,10.5],[1.5,9.5],[2.5,12],[2.5,8],[3.5,14],[3.5,6],[4.5,15],[4.5,5],[5.5,16],[5.5,4]],[[1.5,10.5],[1.5,9.5],[2.5,12],[2.5,10],[3.5,14],[3.5,11],[4.5,17],[4.5,13],[5.5,19],[5.5,15]]];
+CH('#fnC',['對稱','不對稱（疑似發表偏差）'],i=>{const X=v=>40+(v+5)*12,Y=s=>30+s*35;let g=`<line x1='40' x2='400' y1='240' y2='240' stroke='var(--mu)'/><line x1='${X(10)}' x2='${X(10)}' y1='30' y2='240' stroke='var(--ink)' stroke-width='2'/><path d='M${X(10)} 30L${X(10-1.96*6)} 240M${X(10)} 30L${X(10+1.96*6)} 240' stroke='var(--mu)' stroke-dasharray='5 4' fill='none'/>`;for(let v=-5;v<=25;v+=10)g+=`<text x='${X(v)}' y='256' text-anchor='middle' font-size='12' fill='var(--mu)'>${v}</text>`;
+g+=`<text x='6' y='22' font-size='12' fill='var(--mu)'>標準誤（小型研究在下方）</text><text x='${X(10)}' y='262' text-anchor='middle' font-size='0'> </text>`;if(i)g+=`<rect x='${X(-1)}' y='${Y(3.8)}' width='${X(8)-X(-1)}' height='${Y(6)-Y(3.8)}' fill='none' stroke='var(--bad)' stroke-dasharray='4 3'/><text x='${(X(-1)+X(8))/2}' y='${Y(5)}' text-anchor='middle' font-size='12' fill='var(--bad)'>缺少的小型陰性研究？</text>`;FS[i].forEach(p=>g+=`<circle cx='${X(p[1])}' cy='${Y(p[0])}' r='5' fill='var(--c3)'/>`);$('#fnS').innerHTML=g;
+$('#fnT').innerHTML=(i?'<b>左下角空缺</b>：小型且效果小或陰性的研究不見了，只剩小型但效果很大的研究，提示可能有發表偏差（陽性結果較容易被發表）。':'<b>點散成對稱漏斗</b>：小型研究在左右兩側都有，沒有看出明顯的發表偏差。')+`<br><span style='font-size:14px;color:var(--mu)'>注意：不對稱也可能來自小型研究品質較差、異質性或機遇。通常至少約 10 篇研究才適合判讀，可搭配 Egger 檢定。補救做法：搜尋灰色文獻與試驗註冊平台（如 ClinicalTrials.gov）、聯絡作者。圖為教學示例。</span>`});
+// 9 KT
+const KT=[['辨識問題並選擇知識','Identify problem; identify, review, select knowledge','護理師發現住院病人睡眠品質不佳，查證足部按摩的證據（Ask、Acquire、Appraise）。'],['在地化調整','Adapt knowledge to local context','把研究的介入改寫成本單位可執行的流程：對象、時段、人力、禁忌。'],['評估障礙與促進因素','Assess barriers and facilitators to knowledge use','夜班人力、手法不一致、病人意願、團隊共識；同時找出可借力的人，例如護理長與臨床教師。'],['選擇、調整並執行介入','Select, tailor, implement interventions','教育訓練、操作單、回覆示教、小規模試行等實施策略。'],['監測知識的使用','Monitor knowledge use','完成率、是否依流程執行（過程指標）。'],['評估成效','Evaluate outcomes','RCSQ、不良反應、工作負荷、病人經驗（結果與平衡指標）。'],['維持使用','Sustain knowledge use','納入常規或調整流程；以資料回饋，並回到新的 Ask。']];
+CH('#ktC',KT.map((k,i)=>(i+1)+'. '+k[0]),i=>{$('#ktT').innerHTML=`<b>${KT[i][0]}</b>（${KT[i][1]}）<br>${KT[i][2]}`});
+// 10 Choosing Wisely
+const CW=[['我真的需要這個檢查或處置嗎？','Do I really need this test or procedure?','睡前足部按摩是可選擇的助眠措施，不是必須做的。'],['有哪些風險與副作用？','What are the risks and side effects?','可能的足部不適；先評估皮膚與循環，有警訊就暫緩。'],['有沒有更簡單、更安全的選項？','Are there simpler, safer options?','可提供其他助眠方式，例如減少夜間干擾。'],['如果什麼都不做會怎樣？','What happens if I don’t do anything?','睡眠可能維持現況，病人可以先觀察，之後再決定。'],['費用是多少？','How much does it cost?','說明是否有額外費用，以及需要的護理時間。']];
+CH('#cwC',CW.map(c=>c[0]),i=>{$('#cwT').innerHTML=`<b>${CW[i][1]}</b><br>護理師可以這樣回應：${CW[i][2]}`});
+})();
+</script>
+</body>
+</html>
